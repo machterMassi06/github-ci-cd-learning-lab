@@ -219,3 +219,49 @@ jobs:
 - **Workflow Examples:** [Awesome GitHub Actions](https://github.com/sdras/awesome-actions)
 
 ---
+
+# CI/CD Pipeline in This Project
+
+In the `.github/workflows` directory, I’ve defined the following workflows to automate code quality checks and enforcement:
+
+---
+
+## **1. PEP8 Linter (`linter.yml`)**
+ **File:** `.github/workflows/linter.yml`
+
+### **Purpose**
+This workflow ensures **all Python files comply with PEP8**, the official Python style guide.
+It runs **automatically** in the following cases:
+- On every **push** to the `main` branch.
+- On every **pull request** targeting `main`.
+
+### **What It Does**
+1. Installs **Ruff** (a fast Python linter/formatter).
+2. Checks PEP8 compliance 
+3. **Fails the job** if violations are detected (e.g., unsorted imports, incorrect spacing, long lines).
+
+---
+
+### **What to Do If the Workflow Fails**
+If the `linter` job fails, some Python files violate PEP8 rules.
+**To fix the issues:**
+
+1. Run locally:
+   ```bash
+   ruff check --fix --preview .
+   ```
+   - This **automatically fixes** most issues (e.g., import sorting, spacing).
+   - Check changes with `git diff`.
+
+2. Commit and push the fixes:
+   ```bash
+   git add .
+   git commit -m "Fix PEP8 issues with Ruff"
+   git push
+   ```
+
+3. The workflow should now **pass** .
+
+---
+
+## 2 . a faire des workflows(tests, build images)
