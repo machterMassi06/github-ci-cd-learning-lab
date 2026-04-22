@@ -1,0 +1,55 @@
+# Name of the workflow (pipeline).
+# Here, we focus on PEP8 compliance using `ruff`, a modern linter/formatter for Python 
+name: PEP8 
+
+
+# Event triggers: Run this workflow on push to `main` or any pull request targeting `main`.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Define the jobs for this workflow.
+jobs: 
+  build: 
+    # Run on the latest Ubuntu runner.
+    runs-on: ubuntu-latest 
+
+    # Use a matrix to test across multiple Python versions.
+    strategy: 
+      matrix: 
+        python-version: [3.9,3.12]
+    # List of steps to execute in this job.
+    steps:
+    # Step 1: Checkout the repository code.
+    # This is required to access the files in subsequent steps.
+    - name: Checkout repository
+      uses: actions/checkout@v4 # always use the stable version of actions 
+    # Step 2: Set up the specified Python version.
+    - name: Set up python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    # Step 3: Install `ruff`, a fast Python linter and formatter.
+    - name: Install ruff 
+      run: | 
+        python -m pip install --upgrade pip 
+        pip install ruff 
+    # Step 4: Check PEP8 compliance using `ruff`.
+    # `--preview` enables upcoming features (optional but recommended for future-proofing).
+    # `--check` ensures the formatter doesn't modify files (only checks).
+    - name: Check PEP8 compliance with Ruff
+      run: |
+        ruff check --preview . 
+        ruff format --preview --check . 
+          # Step 5: Fail the job if Ruff finds issues.
+    # This ensures the workflow fails if PEP8 violations are detected.
+    # Only run if a previous step failed
+    - name: Fail on PEP8 violations
+      if: failure()  
+      run: |
+        echo "PEP8 violations detected! Check the logs above for details."
+        exit 1
