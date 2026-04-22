@@ -8,7 +8,7 @@ In this lab, I’ll use a Python project as an example (though the concepts can 
 
 ## Usage
 
-In this example, we’ll work with a mini Fink broker (a very simplified version). The real Fink broker is available [here](https://github.com/astrolabsoftware/fink-broker). This repo is just a convenient way to have a Python project to experiment with, and it’s a good fit since I work on the Fink team—a project based on Apache Kafka. But you can ignore that; this repo is purely for learning how to create a GitHub Actions CI pipeline for a Python project.
+In this example, we’ll work with a mini Fink broker (a very simplified version). The real Fink broker is available [here](https://github.com/astrolabsoftware/fink-broker). This repo is just a convenient way to have a Python project to experiment with, and it’s a good fit since I work on the Fink team—a project based on Apache Spark & Kafka. But you can ignore that; this repo is purely for learning how to create a GitHub Actions CI pipeline for a Python project.
 
 
 ### Setup
@@ -58,11 +58,36 @@ python mini-fink-broker/main.py --input data/alerts.json --science --filters fil
 ```
 
 This command simply displays the DataFrame (df.show(20)) after applying the business logic. You could adapt it—for example, by adding ingestion to a database, Kafka topics, etc.
+## Run Tests
+
+If you want to add new features—whether in existing files or by creating new modules—you should test your functions using **doctests**. Use `tests/run_tests.py` to run the tests (including doctrings) with a Spark session if needed.
+
+To manually run the tests, use the following commands:
+
+```bash
+chmod +x run_tests.sh
+./run_tests.sh -h
+```
+
+Output:
+
+```
+Mini-Fink Test Runner
+_______________________________
+
+Usage:
+  ./run_tests.sh                     Run all tests
+  ./run_tests.sh --single_module X   Run a single module
+  ./run_tests.sh --help              Show help
+
+Examples:
+  ./run_tests.sh
+  ./run_tests.sh --single_module mini_fink_science.py
+  ./run_tests.sh --single_module mini-fink-broker/mini_fink_science.py
+```
 
 ---
 
 ## Let’s Talk About CI/CD Pipelines
 
-I’ll cover this next.
-
----
+I’ll cover this next...
