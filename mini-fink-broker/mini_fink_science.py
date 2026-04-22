@@ -1,6 +1,6 @@
-from pyspark.sql.types import StringType
-from pyspark.sql.functions import pandas_udf
 import pandas as pd
+from pyspark.sql.functions import pandas_udf
+from pyspark.sql.types import StringType
 
 
 @pandas_udf(StringType())

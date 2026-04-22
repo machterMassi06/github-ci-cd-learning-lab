@@ -1,7 +1,8 @@
-import sys
 import doctest
-from pyspark.sql import SparkSession
+import sys
 import time
+
+from pyspark.sql import SparkSession
 
 
 def run_spark_tests(globs=None, verbose=False, module_name="unknown"):

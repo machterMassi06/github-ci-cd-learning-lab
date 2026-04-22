@@ -1,6 +1,7 @@
 import argparse
-from mini_fink_science import classify
+
 from filters import all_user_filters
+from mini_fink_science import classify
 from spark_utils import get_spark_session
 
 sciences_modules = [classify]
