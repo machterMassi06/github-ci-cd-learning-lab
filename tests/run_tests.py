@@ -1,10 +1,10 @@
 import sys
 import doctest
-import numpy as np
 from pyspark.sql import SparkSession
-import time 
+import time
 
-def run_spark_tests(globs=None, verbose=False,module_name="unknown"):
+
+def run_spark_tests(globs=None, verbose=False, module_name="unknown"):
     """
     Spark + doctest runner .
 
@@ -16,16 +16,12 @@ def run_spark_tests(globs=None, verbose=False,module_name="unknown"):
         Print doctest output
     """
 
-
     if globs is None:
         globs = {}
 
     #  Spark session
     spark = (
-        SparkSession.builder
-        .master("local[2]")
-        .appName("MiniFinkTests")
-        .getOrCreate()
+        SparkSession.builder.master("local[2]").appName("MiniFinkTests").getOrCreate()
     )
 
     globs["spark"] = spark
@@ -52,6 +48,5 @@ def run_spark_tests(globs=None, verbose=False,module_name="unknown"):
         print("❌ TESTS: FAILED")
     else:
         print("✅ TESTS: SUCCESS")
-
 
     sys.exit(failed)

@@ -1,6 +1,7 @@
 from pyspark.sql.types import StringType
 from pyspark.sql.functions import pandas_udf
-import pandas as pd 
+import pandas as pd
+
 
 @pandas_udf(StringType())
 def classify(magnitude: pd.Series) -> pd.Series:
@@ -10,10 +11,10 @@ def classify(magnitude: pd.Series) -> pd.Series:
     >>> sorted(df.select(classify(df["mag"])).rdd.map(lambda r: r[0]).collect())
     ['normal', 'normal', 'normal', 'very_bright', 'very_bright', 'very_bright']
     """
-    return magnitude.apply(
-        lambda x: "very_bright" if x < 18 else "normal"
-    )
+    return magnitude.apply(lambda x: "very_bright" if x < 18 else "normal")
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     from tests.run_tests import run_spark_tests
-    run_spark_tests(globals(),verbose=False,module_name=__file__)
+
+    run_spark_tests(globals(), verbose=False, module_name=__file__)
