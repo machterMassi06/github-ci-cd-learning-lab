@@ -88,10 +88,6 @@ Examples:
 
 ---
 
-Here’s the fully integrated, enriched, and learner-friendly English version, incorporating all your details and best practices:
-
----
-
 # Let’s Talk About CI/CD Pipelines with GitHub Actions
 
 ## Introduction: Why Automate with GitHub Actions?
