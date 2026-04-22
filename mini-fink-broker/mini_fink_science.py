@@ -1,7 +1,8 @@
+from pyspark.sql.types import StringType
+from pyspark.sql.functions import pandas_udf
 import pandas as pd 
-from pyspark.sql.functions import pandas_udf 
 
-@pandas_udf("string")
+@pandas_udf(StringType())
 def classify(magnitude: pd.Series) -> pd.Series:
     """
     Classify alerts based on magnitude.
