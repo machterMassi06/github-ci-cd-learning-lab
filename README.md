@@ -264,4 +264,56 @@ If the `linter` job fails, some Python files violate PEP8 rules.
 
 ---
 
-## 2 . a faire des workflows(tests, build images)
+Voici une version reformulée, plus claire et professionnelle 👇
+
+---
+
+## **2. Dependency Management (`dependabot.yml`)**
+
+**File:** `.github/dependabot.yml`
+
+### **What is it?**
+
+Dependabot is a tool provided by GitHub to help you keep your project dependencies secure and up to date.
+
+It automatically:
+
+* detects vulnerable dependencies,
+* suggests updates,
+* and creates pull requests to fix or upgrade them.
+
+Dependabot helps reduce security risks and ensures your project uses maintained and compatible versions of its dependencies.
+
+For more details, see the official guide:
+[dependabot-quickstart-guide](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide)
+
+---
+
+### **What Dependabot does in this project**
+
+1. **Monitors dependencies**
+   
+   It checks dependencies from:
+
+   * Python (`pip`)
+   * GitHub Actions
+
+   All checks are performed from the root directory of the project.
+
+2. **Runs on a schedule**
+
+   * Executes checks **weekly**
+   * Can ignore specific dependencies (e.g. `pyspark`) to avoid breaking changes
+
+3. **Automates updates**
+
+   * Creates pull requests automatically when updates are available
+   * Limits the number of open PRs
+   * Uses standardized commit prefixes:
+
+     * `chore` for Python dependencies
+     * `ci` for GitHub Actions
+   * Adds relevant GitHub labels to each PR
+
+---
+
