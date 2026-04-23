@@ -262,9 +262,6 @@ If the `linter` job fails, some Python files violate PEP8 rules.
 
 3. The workflow should now **pass** .
 
----
-
-Voici une version reformulée, plus claire et professionnelle 👇
 
 ---
 
@@ -317,3 +314,50 @@ For more details, see the official guide:
 
 ---
 
+Voici une section README propre et cohérente avec ce que tu fais 👇
+
+---
+
+## **3. Continuous Integration – Run Tests (`ci.yml`)**
+
+**File:** `.github/workflows/ci.yml`
+
+### **What is it?**
+
+Continuous Integration (CI) is a development practice that automatically runs tests whenever code is pushed or a pull request is opened.
+
+In this project, GitHub Actions is used to ensure that all modules are working correctly and remain compatible across different Python versions.
+
+---
+
+### **What this CI does**
+
+1. **Triggers automatically**
+
+   * On every push to the `main` branch
+   * On every pull request targeting `main`
+
+2. **Tests multiple Python versions**
+
+     * Python 3.9
+     * Python 3.12
+   * Ensures compatibility across environments
+
+3. **Sets up the environment**
+
+   * Installs Python
+   * Installs project dependencies from `requirements.txt`
+
+4. **Runs the test suite**
+
+   * Executes the `run_tests.sh` script
+   * Runs all modules except `main.py`
+   * Uses embedded doctests inside each module
+
+5. **Fails on errors**
+
+   * If any test fails → the CI job fails
+
+---
+
+Happy CI! All tests passed, time for coffee :)

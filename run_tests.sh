@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 show_help() {
     echo ""
     echo "Mini-Fink Test Runner"
@@ -41,7 +41,7 @@ echo "Running Mini fink broker Tests"
 echo "_______________________________"
 
 export MINI_FINK_BROKER_HOME="./mini-fink-broker" # adapte with the truth path
-source ./venv/bin/activate
+#source ./venv/bin/activate
 
 # Test single module 
 
@@ -62,7 +62,7 @@ fi
 for file in $MINI_FINK_BROKER_HOME/*.py
 do
     #  skip main.py
-    if [[ "$(basename "$file")" == "main.py" ]]; then
+    if [ "$(basename "$file")" = "main.py" ]; then
         continue
     fi
     python "$file"
