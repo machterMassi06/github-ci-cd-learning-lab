@@ -21,7 +21,7 @@ jobs:
     # Use a matrix to test across multiple Python versions.
     strategy: 
       matrix: 
-        python-version: [3.10,3.12]
+        python-version: [3.11,3.12]
     # List of steps to execute in this job.
     steps:
     # Step 1: Checkout the repository code.
