@@ -314,9 +314,6 @@ For more details, see the official guide:
 
 ---
 
-Voici une section README propre et cohérente avec ce que tu fais 👇
-
----
 
 ## **3. Continuous Integration – Run Tests (`ci.yml`)**
 
@@ -326,11 +323,8 @@ Voici une section README propre et cohérente avec ce que tu fais 👇
 
 Continuous Integration (CI) is a development practice that automatically runs tests whenever code is pushed or a pull request is opened.
 
-In this project, GitHub Actions is used to ensure that all modules are working correctly and remain compatible across different Python versions.
 
----
-
-### **What this CI does**
+### **What this CI does in this project**
 
 1. **Triggers automatically**
 
