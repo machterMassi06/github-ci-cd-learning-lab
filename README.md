@@ -1,3 +1,6 @@
+[![CI](https://github.com/machterMassi06/github-ci-cd-learning-lab/actions/workflows/run_tests.yml/badge.svg)](https://github.com/machterMassi06/github-ci-cd-learning-lab/actions/workflows/run_tests.yml)
+[![PEP8](https://github.com/machterMassi06/github-ci-cd-learning-lab/actions/workflows/linter.yml/badge.svg)](https://github.com/machterMassi06/github-ci-cd-learning-lab/actions/workflows/linter.yml)
+
 # GITHUB CI/CD LEARNING LAB
 
 Welcome to this CI/CD learning lab using **GitHub Actions**.
