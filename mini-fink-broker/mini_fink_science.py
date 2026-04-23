@@ -11,7 +11,7 @@ def classify(magnitude: pd.Series) -> pd.Series:
     >>> sorted(df.select(classify(df["mag"])).rdd.map(lambda r: r[0]).collect())
     ['normal', 'normal', 'normal', 'very_bright', 'very_bright', 'very_bright']
     """
-    return magnitude.apply(lambda x: "very_bright" if x < 20 else "normal")
+    return magnitude.apply(lambda x: "very_bright" if x < 18 else "normal")
 
 
 if __name__ == "__main__":
