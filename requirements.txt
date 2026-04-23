@@ -1,6 +1,6 @@
 pyspark==3.5.1
 pandas>=2.0
-numpy>=1.23
+numpy>=2.4.4
 setuptools
 PyArrow >= 4.0.0
 ruff==0.15.11
