@@ -30,7 +30,7 @@ jobs:
       uses: actions/checkout@v6 # always use the stable version of actions 
     # Step 2: Set up the specified Python version.
     - name: Set up python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v6
       with:
         python-version: ${{ matrix.python-version }}
     # Step 3: Install `ruff`, a fast Python linter and formatter.
