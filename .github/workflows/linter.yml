@@ -27,7 +27,7 @@ jobs:
     # Step 1: Checkout the repository code.
     # This is required to access the files in subsequent steps.
     - name: Checkout repository
-      uses: actions/checkout@v4 # always use the stable version of actions 
+      uses: actions/checkout@v6 # always use the stable version of actions 
     # Step 2: Set up the specified Python version.
     - name: Set up python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
