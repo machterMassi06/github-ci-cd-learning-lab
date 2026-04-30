@@ -3,4 +3,4 @@ pandas>=2.0
 numpy>=2.4.4
 setuptools
 PyArrow >= 4.0.0
-ruff==0.15.11
+ruff==0.15.12
